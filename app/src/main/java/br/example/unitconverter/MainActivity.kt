@@ -51,9 +51,10 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Title() {
+fun StyledText(text: String) {
     Text(
-        text = "Unit Converter",
+        text = text,
+        style = MaterialTheme.typography.headlineSmall
     )
 }
 
@@ -118,7 +119,7 @@ fun UnitConverter() {
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier.padding(16.dp),
     ) {
-        Title()
+        StyledText("Unit converter")
         UnitConverterInputField(
             inputValue,
             { inputValue = it; calcResult() },
@@ -150,7 +151,7 @@ fun UnitConverter() {
             )
         }
         Spacer(modifier = Modifier.height(16.dp))
-        Text(text = "Result: $outputValue")
+        StyledText(text = "Result: $outputValue $outputUnit")
     }
 }
 
